@@ -10,6 +10,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import java.util.stream.Stream;
 import static com.codeborne.selenide.Selenide.*;
+
+
 public class MVideoTests {
     String URL = "https://www.mvideo.ru/";
 
