@@ -13,14 +13,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class MVideoTests {
-    String URL = "https://www.mvideo.ru/";
+    String url = "https://www.mvideo.ru/";
 
 
     @Test
     @Tag("BLOCKER")
     @DisplayName("Поиск товара Iphone на сайте МВидео")
-    void SearchProductTest() {
-        open(URL);
+    void searchProductTest() {
+        open(url);
 
         $(".input__field").setValue("iphone").pressEnter();
         $(".ng-star-inserted").shouldHave(Condition.text("iphone"));
@@ -32,8 +32,8 @@ public class MVideoTests {
     })
     @Tag("BLOCKER")
     @ParameterizedTest(name = "Поиск товара {0} на сайте МВидео")
-    void SearchProductMVideoTest(String searchQuery) {
-        open(URL);
+    void searchProductMVideoTest(String searchQuery) {
+        open(url);
 
         $(".input__field").setValue(searchQuery).pressEnter();
         $(".ng-star-inserted").shouldHave(Condition.text(searchQuery));
@@ -46,15 +46,15 @@ public class MVideoTests {
     delimiter = '|')
     @Tag("BLOCKER")
     @ParameterizedTest(name = "Поиск товара {0} на сайте МВидео и проверка наличия текста {1}")
-    void SearchProductMVideo1Test(String searchQuery, String expectedResult) {
-        open(URL);
+    void searchProductMVideo1Test(String searchQuery, String expectedResult) {
+        open(url);
 
         $(".input__field").setValue(searchQuery).pressEnter();
         $(".ng-star-inserted").shouldHave(Condition.text(expectedResult));
     }
 
 
-    static Stream<Arguments> SearchProductMVideo2Test(){
+    static Stream<Arguments> searchProductMVideo2Test(){
         return Stream.of(
                 Arguments.of("rtx", "Видеокарта"),
                 Arguments.of("iphone", "Смартфон")
@@ -64,8 +64,8 @@ public class MVideoTests {
     @MethodSource
     @Tag("BLOCKER")
     @ParameterizedTest(name = "Поиск товара {0} на сайте МВидео и проверка наличия текста {1}")
-    void SearchProductMVideo2Test(String searchQuery, String expectedResult) {
-        open(URL);
+    void searchProductMVideo2Test(String searchQuery, String expectedResult) {
+        open(url);
 
         $(".input__field").setValue(searchQuery).pressEnter();
         $(".ng-star-inserted").shouldHave(Condition.text(expectedResult));
